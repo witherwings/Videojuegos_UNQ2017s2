@@ -4,18 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScript : MonoBehaviour {
 
-	public Text wavesText;
-
-	void OnEnable(){
-		wavesText.text = PlayerStats.Waves.ToString ();
-	}
+	public SceneFader sceneFader;
+	public string menuSceneName = "Menu";
 
 	public void Retry(){
-		Time.timeScale = 1f;
-		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
+		sceneFader.FadeTo (SceneManager.GetActiveScene ().name);
 	}
 
 	public void Menu(){
-		Debug.Log ("Menu");
+		sceneFader.FadeTo (menuSceneName);
 	}
 }

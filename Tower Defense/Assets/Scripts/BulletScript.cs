@@ -53,10 +53,9 @@ public class BulletScript : MonoBehaviour {
 	}
 
 	void Damage(Transform enemy){
-		EnemyScript e = target.GetComponent<EnemyScript>();
+		EnemyScript e = enemy.GetComponent<EnemyScript>();
 		if (e != null) {
 			e.TakeDamage (damageBullet);
 		}
-		//Destroy (enemy.gameObject);
 	}
 }

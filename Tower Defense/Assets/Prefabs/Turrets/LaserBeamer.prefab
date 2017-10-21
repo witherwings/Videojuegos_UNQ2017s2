@@ -399,6 +399,8 @@ MonoBehaviour:
   fireRate: 1
   bulletPfb: {fileID: 0}
   useLaser: 1
+  damageOverTime: 20
+  slowEnemy: 0.5
   lineRenderer: {fileID: 120799266959471252}
   impactEffect: {fileID: 198794167792962556}
   impactLight: {fileID: 108754190991344088}

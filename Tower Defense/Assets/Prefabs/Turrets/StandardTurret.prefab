@@ -254,8 +254,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 10
   fireRate: 1
+  bulletPfb: {fileID: 1374799454182970, guid: 751f310caff36d54bb544a2249c94fd6, type: 2}
+  useLaser: 0
+  damageOverTime: 20
+  slowEnemy: 0.5
+  lineRenderer: {fileID: 0}
+  impactEffect: {fileID: 0}
+  impactLight: {fileID: 0}
   enemyTag: Enemy
   rotator: {fileID: 4243956944293128}
   rotateSpeed: 10
-  bulletPfb: {fileID: 1374799454182970, guid: 751f310caff36d54bb544a2249c94fd6, type: 2}
   firePoint: {fileID: 4655065278986930}
