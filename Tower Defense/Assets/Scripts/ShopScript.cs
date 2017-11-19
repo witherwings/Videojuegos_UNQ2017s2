@@ -5,6 +5,7 @@ public class ShopScript : MonoBehaviour {
 	public TurretMapping standardTurret;
 	public TurretMapping missileLauncher;
 	public TurretMapping laserBeamer;
+	public int livesCost;
 
 	BuildManager buildManager;
 
@@ -25,5 +26,11 @@ public class ShopScript : MonoBehaviour {
 	public void SelectLaserBeamer(){
 		Debug.Log ("purchase");
 		buildManager.SelectTurretToBuild (laserBeamer);
+	}
+
+	public void BuyLives(){
+		Debug.Log ("purchase");
+		PlayerStats.Lives ++;
+		PlayerStats.Money -= livesCost;
 	}
 }

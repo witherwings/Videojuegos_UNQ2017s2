@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour {
 
@@ -10,15 +11,20 @@ public class CameraController : MonoBehaviour {
 	public float minY = 10f;
 	public float maxY = 80f;
 
+	public Button staticCamera;
+	public Button dynamicCamera;
+
+	void Start(){
+		staticCamera.interactable = false;
+		dynamicCamera.interactable = true;
+	}
+
 	void Update () {
 		if (GameManager.GameIsOver) {
 			this.enabled = false;
 			return;
 		}
-
-		if (Input.GetKeyDown (KeyCode.M)) {
-			doMovement = !doMovement;
-		}
+			
 		if (!doMovement) {return;}
 
 		if (Input.GetKey ("w") || Input.mousePosition.y >= Screen.height - panBorder) {
@@ -41,5 +47,11 @@ public class CameraController : MonoBehaviour {
 		pos.y = Mathf.Clamp (pos.y, minY, maxY);
 
 		transform.position = pos;
+	}
+
+	public void changeCamera(){
+		doMovement = !doMovement;
+		staticCamera.interactable = !staticCamera.interactable;
+		dynamicCamera.interactable = !dynamicCamera.interactable;
 	}
 }
