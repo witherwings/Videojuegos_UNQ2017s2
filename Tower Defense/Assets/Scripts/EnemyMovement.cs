@@ -5,6 +5,7 @@ public class EnemyMovement : MonoBehaviour {
 
 	private Transform target;
 	private int nextPathPoint = 0;
+	private float turnSpeed = 5.0f;
 
 	private EnemyScript enemySc;
 
@@ -15,9 +16,17 @@ public class EnemyMovement : MonoBehaviour {
 
 	void Update(){
 		Vector3 direction = target.position - transform.position;
-		transform.Translate (direction.normalized * enemySc.speed * Time.deltaTime, Space.World);
+		Canvas c = transform.gameObject.GetComponentInChildren<Canvas> ();
 
-		if (Vector3.Distance (transform.position, target.position) <= 0.4f) {
+		transform.Translate (direction.normalized * enemySc.speed * Time.deltaTime, Space.World);
+		Quaternion rotCanvas = c.transform.rotation;
+
+		direction.y = 0;
+		var rotation = Quaternion.LookRotation(direction);
+		transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * turnSpeed);
+		c.transform.rotation = rotCanvas;
+
+		if (Vector3.Distance (transform.position, target.position) <= 0.1f) {
 			NextPathPoint ();
 		}
 
@@ -36,6 +45,7 @@ public class EnemyMovement : MonoBehaviour {
 
 	void EndPath(){
 		PlayerStats.Lives--;
+		PlayerStats.Money -= enemySc.moneyOnDeath / 2;
 		SpawnerScript.enemiesAlive--;
 		Destroy (gameObject);
 	}

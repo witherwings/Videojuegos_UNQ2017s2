@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0c800dd4cdaa83459b9157004bca5ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 20
+  range: 25
   fireRate: 1.5
   bulletPfb: {fileID: 1374799454182970, guid: 9dbb0ac53327b1645a4df1e5e3349fe2, type: 2}
   useLaser: 0

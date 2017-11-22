@@ -34,10 +34,9 @@ public class BulletScript : MonoBehaviour {
 		GameObject effect = (GameObject)Instantiate (impactEffect, transform.position, transform.rotation);
 		Destroy (effect, 5f);	
 
+		Damage (target, 1.0f);
 		if (explosionRadius > 0f) {
 			Explode ();
-		} else {
-			Damage (target);
 		}
 
 		Destroy (gameObject);
@@ -46,16 +45,16 @@ public class BulletScript : MonoBehaviour {
 	void Explode(){
 		Collider[] colliders = Physics.OverlapSphere (transform.position, explosionRadius);
 		foreach (Collider col in colliders) {
-			if (col.tag == "Enemy") {
-				Damage (col.transform);
+			if (col.tag == "Enemy" && col.transform != target) {
+				Damage (col.transform, 0.5f);
 			}
 		}
 	}
 
-	void Damage(Transform enemy){
+	void Damage(Transform enemy, float multiplier){
 		EnemyScript e = enemy.GetComponent<EnemyScript>();
 		if (e != null) {
-			e.TakeDamage (damageBullet);
+			e.TakeDamage (damageBullet * multiplier);
 		}
 	}
 }
