@@ -6,11 +6,14 @@ public class EnemyMovement : MonoBehaviour {
 	private Transform target;
 	private int nextPathPoint = 0;
 	private float turnSpeed = 5.0f;
+	public bool isFinalBoss = false;
 
 	private EnemyScript enemySc;
+	private GameManager gmSc;
 
 	void Start(){
 		enemySc = GetComponent<EnemyScript> ();
+		gmSc = FindObjectOfType<GameManager> ().GetComponent<GameManager> ();
 		target = PathScript.pathPoints [0];
 	}
 
@@ -44,9 +47,14 @@ public class EnemyMovement : MonoBehaviour {
 	}
 
 	void EndPath(){
+		if (isFinalBoss) {
+			gmSc.EndGame ();
+		} else {
+			SpawnerScript.enemiesAlive--;
+		}
 		PlayerStats.Lives--;
 		PlayerStats.Money -= enemySc.moneyOnDeath / 2;
-		SpawnerScript.enemiesAlive--;
 		Destroy (gameObject);
+
 	}
 }

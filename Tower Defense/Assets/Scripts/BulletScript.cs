@@ -8,6 +8,8 @@ public class BulletScript : MonoBehaviour {
 	public int damageBullet = 50;
 	public GameObject impactEffect;
 
+	private GameObject turretOrigin;
+
 	public void LockOn (Transform lockon){
 		target = lockon;
 	}
@@ -39,6 +41,9 @@ public class BulletScript : MonoBehaviour {
 			Explode ();
 		}
 
+		turretOrigin.GetComponent<AudioSource> ().Stop ();
+		target.GetComponent<AudioSource> ().Play ();
+
 		Destroy (gameObject);
 	}
 
@@ -56,5 +61,9 @@ public class BulletScript : MonoBehaviour {
 		if (e != null) {
 			e.TakeDamage (damageBullet * multiplier);
 		}
+	}
+
+	public void setTurret(GameObject t){
+		turretOrigin = t;
 	}
 }

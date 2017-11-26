@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 135289387023948872}
   - component: {fileID: 114884771693653360}
   - component: {fileID: 114905298553099084}
+  - component: {fileID: 82980531584308830}
   m_Layer: 0
   m_Name: BossSpider
   m_TagString: Enemy
@@ -1664,6 +1665,86 @@ Transform:
   m_Father: {fileID: 4763028910442422}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &82980531584308830
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1299586738648086}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5daa45e98ef1d9e4099caf1c13af625f, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!111 &111629613969325728
 Animation:
   m_ObjectHideFlags: 1
@@ -1793,7 +1874,7 @@ MonoBehaviour:
   startHealth: 1000
   health: 0
   moneyOnDeath: 150
-  deathEffect: {fileID: 1572753775905452, guid: 331479506ed942e458aa0f76778412ae,
+  deathEffect: {fileID: 1572753775905452, guid: 57de2106ec77c364b82369dc0049c169,
     type: 2}
   healthBar: {fileID: 114487694098528298}
 --- !u!114 &114905298553099084
@@ -1807,6 +1888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb9fcbd04233fa49b22d5c882d342aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinalBoss: 0
 --- !u!135 &135289387023948872
 SphereCollider:
   m_ObjectHideFlags: 1

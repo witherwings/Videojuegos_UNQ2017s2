@@ -91,6 +91,7 @@ public class TurretBehaviour : MonoBehaviour {
 	void Laser(){
 		targetSc.TakeDamage (damageOverTime * Time.deltaTime);
 		targetSc.Slow (slowEnemy);
+		PlaySound ();
 
 		if (!lineRenderer.enabled) {
 			lineRenderer.enabled = true;
@@ -109,9 +110,17 @@ public class TurretBehaviour : MonoBehaviour {
 	void Shoot(){
 		GameObject bulletInit = (GameObject)Instantiate (bulletPfb, firePoint.position, firePoint.rotation);
 		BulletScript bullet = bulletInit.GetComponent<BulletScript> ();
+		bullet.setTurret (this.gameObject);
+		PlaySound ();
 
 		if (bullet != null) {
 			bullet.LockOn (nearestTarget);
+		}
+	}
+
+	void PlaySound(){
+		if (nearestTarget != null) {
+			GetComponent<AudioSource> ().Play ();
 		}
 	}
 

@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour {
 	public float panBorder = 10f;
 	public float scrollSpeed = 5f;
 	public float minY = 10f;
-	public float maxY = 80f;
+	public float maxY = 60f;
 
 	public Button staticCamera;
 	public Button dynamicCamera;

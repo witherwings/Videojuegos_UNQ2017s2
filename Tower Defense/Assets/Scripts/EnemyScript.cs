@@ -35,9 +35,10 @@ public class EnemyScript : MonoBehaviour {
 	}
 
 	void Die(){
-
 		isDead = true;
 		PlayerStats.Money += moneyOnDeath;
+		PlayerStats.KillCountRound++;
+		PlayerStats.KillCountTotal++;
 
 		GameObject effect = (GameObject)Instantiate (deathEffect, transform.position, Quaternion.identity);
 		Destroy (effect, 5);

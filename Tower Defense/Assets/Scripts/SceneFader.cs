@@ -12,6 +12,7 @@ public class SceneFader : MonoBehaviour {
 	}
 
 	public void FadeTo(string scene){
+		Time.timeScale = 1f;
 		StartCoroutine (FadeOut (scene));
 
 	}
@@ -37,6 +38,7 @@ public class SceneFader : MonoBehaviour {
 			yield return 0;
 		}
 
+		SpawnerScript.enemiesAlive = 0;
 		SceneManager.LoadScene (scene);
 	}
 

@@ -5,9 +5,13 @@ using System.Collections;
 public class EndStats : MonoBehaviour {
 
 	public Text wavesText;
+	public Text killCountRound;
+	public Text killCountTotal;
 
 	public void OnEnable(){
 		StartCoroutine (AnimateText ());
+		killCountRound.text = PlayerStats.KillCountRound.ToString();
+		killCountTotal.text = PlayerStats.KillCountTotal.ToString();
 	}
 
 	IEnumerator AnimateText(){
