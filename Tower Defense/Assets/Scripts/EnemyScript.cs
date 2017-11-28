@@ -21,6 +21,7 @@ public class EnemyScript : MonoBehaviour {
 	}
 
 	public void TakeDamage(float damage){
+		GetComponent<AudioSource> ().Play ();
 		health -= damage;
 
 		healthBar.fillAmount = health / startHealth;

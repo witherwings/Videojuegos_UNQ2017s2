@@ -38,7 +38,6 @@ public class SceneFader : MonoBehaviour {
 			yield return 0;
 		}
 
-		SpawnerScript.enemiesAlive = 0;
 		SceneManager.LoadScene (scene);
 	}
 

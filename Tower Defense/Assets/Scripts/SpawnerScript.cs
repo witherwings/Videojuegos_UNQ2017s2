@@ -10,9 +10,9 @@ public class SpawnerScript : MonoBehaviour {
 	public Transform spawner;
 
 	public float timeSpammer = 5.5f;
-	private float countdown = 2f;
+	private float countdown = 2.5f;
 
-	private int waveLevel = 0;
+	public int waveLevel = 0;
 	public Text waveCount;
 
 	public GameManager gm;
@@ -58,5 +58,13 @@ public class SpawnerScript : MonoBehaviour {
 
 	void SpawnSingleEnemy(GameObject enemyPfb){
 		Instantiate (enemyPfb, spawner.position, spawner.rotation);
+	}
+
+	public void retry(bool isMenu){
+		enemiesAlive = 0;
+		waveLevel = 0;
+		if (isMenu) {
+			PlayerStats.KillCountTotal = 0;
+		}
 	}
 }

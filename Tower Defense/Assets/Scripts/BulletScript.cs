@@ -41,8 +41,9 @@ public class BulletScript : MonoBehaviour {
 			Explode ();
 		}
 
-		turretOrigin.GetComponent<AudioSource> ().Stop ();
-		target.GetComponent<AudioSource> ().Play ();
+		if (turretOrigin != null) {
+			turretOrigin.GetComponent<AudioSource> ().Stop ();
+		}
 
 		Destroy (gameObject);
 	}

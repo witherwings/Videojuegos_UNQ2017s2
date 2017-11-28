@@ -4599,7 +4599,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -4703,6 +4703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFinalBoss: 1
+  bossAudio: {fileID: 8300000, guid: d3939eff93465e946a10b629875943eb, type: 3}
 --- !u!114 &114915502337840264
 MonoBehaviour:
   m_ObjectHideFlags: 1

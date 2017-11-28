@@ -11,12 +11,21 @@ public class CompleteLevel : MonoBehaviour {
 	public string nextLevel = "Level02";
 	public int levelToUnlock = 2;
 
+	public AudioClip winAudio;
+	public AudioClip theme;
+
+	void Start(){
+		FindObjectOfType<AudioManager> ().changeMusic (winAudio);
+	}
+
 	public void Continue(){
 		saveStats ();
+		FindObjectOfType<AudioManager> ().changeMusic (theme);
 		fader.FadeTo (nextLevel);
 	}
 
 	public void Menu(){
+		FindObjectOfType<AudioManager> ().changeMusic (theme);
 		fader.FadeTo (menuSceneName);
 	}
 

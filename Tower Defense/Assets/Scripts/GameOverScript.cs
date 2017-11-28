@@ -6,18 +6,22 @@ public class GameOverScript : MonoBehaviour {
 
 	public SceneFader sceneFader;
 	public string menuSceneName = "Menu";
+	public SpawnerScript spawner;
+	public AudioClip audio;
 
-	public void Start(){
+	void Start(){
 		Time.timeScale = 0f;
 	}
 
 	public void Retry(){
-		Time.timeScale = 1f;
+		spawner.retry (false);
+		FindObjectOfType<AudioManager> ().changeMusic (audio);
 		sceneFader.FadeTo (SceneManager.GetActiveScene ().name);
 	}
 
 	public void Menu(){
-		Time.timeScale = 1f;
+		spawner.retry (true);
+		FindObjectOfType<AudioManager> ().changeMusic (audio);
 		sceneFader.FadeTo (menuSceneName);
 	}
 }

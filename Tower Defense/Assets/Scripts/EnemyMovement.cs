@@ -7,6 +7,7 @@ public class EnemyMovement : MonoBehaviour {
 	private int nextPathPoint = 0;
 	private float turnSpeed = 5.0f;
 	public bool isFinalBoss = false;
+	public AudioClip bossAudio;
 
 	private EnemyScript enemySc;
 	private GameManager gmSc;
@@ -15,6 +16,9 @@ public class EnemyMovement : MonoBehaviour {
 		enemySc = GetComponent<EnemyScript> ();
 		gmSc = FindObjectOfType<GameManager> ().GetComponent<GameManager> ();
 		target = PathScript.pathPoints [0];
+		if (isFinalBoss) {
+			FindObjectOfType<AudioManager> ().changeMusic (bossAudio);
+		}
 	}
 
 	void Update(){
